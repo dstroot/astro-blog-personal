@@ -3,7 +3,7 @@ export { cn } from "./cn";
 export {
   // getCategories,
   // getPosts,
-  getPosts2,
+  getPosts,
   // getTags,
   // getPostByTag,
   // filterPostsByCategory

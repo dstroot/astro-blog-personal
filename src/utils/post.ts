@@ -14,7 +14,7 @@ import { getCollection } from "astro:content";
 // 		.slice(0, max)
 // }
 
-export const getPosts2 = async (max?: number) => {
+export const getPosts = async (max?: number) => {
   return (await getCollection("posts"))
     .filter((post) => post.data.published) // get only published posts
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()) // sort by date desc

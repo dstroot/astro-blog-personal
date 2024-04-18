@@ -10,8 +10,8 @@ interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   author: "Dan Stroot", // Site author
-  title: "Astro Theme OpenBlog", // Site title.
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", // Description to display in the meta tags
+  title: "Dan Stroot · Blog", // Site title.
+  description: "I love building things", // Description to display in the meta tags
   lang: "en-US",
   ogLocale: "en_US",
   shareMessage: "Share this post", // Message to share a post on social media

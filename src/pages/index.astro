@@ -1,18 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getPosts2 } from '@/utils'
+import { getPosts } from '@/utils'
+import { siteConfig } from '@/site-config'
+import ListPosts from '@/components/ListPosts'
 
 const MAX_POSTS = 5 // max number of posts to show on the home page
-const posts = await getPosts2(MAX_POSTS)
+const posts = await getPosts(MAX_POSTS)
 ---
 
 <BaseLayout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to <span class="text-3xl">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
+		<section class="mb-8 md:mb-12">
+      <div class="flex flex-col items-center md:flex-row md:justify-between">
+        <h1 class="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl">
+          {siteConfig.title}
+        </h1>
+        <div class="mt-2 text-2xl font-semibold italic md:text-2xl lg:text-3xl">
+          {siteConfig.description}
+        </div>
+      </div>
+    </section>
+		<ListPosts FirstBig={true} posts={posts} />
 	</main>
 </BaseLayout>
 

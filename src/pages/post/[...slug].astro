@@ -1,0 +1,38 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content'
+import BlogPost from '@/layouts/BlogPost'
+import Code from '@/components/mdx/Code'
+import YouTube from '@/components/mdx/YouTube'
+import { getPosts } from '@/utils'
+
+
+// const posts = await getCollection('posts')
+
+export async function getStaticPaths() {
+	const posts = await getPosts()
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post
+	}))
+}
+type Props = CollectionEntry<'posts'>
+
+const post = Astro.props
+const { Content, headings, remarkPluginFrontmatter } = await post.render()
+---
+
+<BlogPost
+	id={post.id}
+	data={post.data}
+	headings={headings}
+	readTime={remarkPluginFrontmatter.minutesRead}
+>
+	<div class='mt-8'>
+		<!-- post -->
+		<article class='w-full max-w-full'>
+			<div class='min-w-full mb-12 prose prose-lg md:prose-xl dark:prose-invert'>
+				<Content components={{ pre: Code, YouTube }} />
+			</div>
+		</article>
+	</div>
+</BlogPost>
