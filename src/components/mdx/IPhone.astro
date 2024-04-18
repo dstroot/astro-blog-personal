@@ -1,0 +1,11 @@
+---
+// import { env } from '@/config/env.mjs'
+
+const URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://dantstroot.com' 
+// env.NEXT_PUBLIC_APP_URL
+---
+
+<div class="m-0 hidden h-[970px] w-[480px] place-content-center bg-[url('https://danstroot.imgix.net/assets/blog/img/iphone-x.png')] bg-contain bg-no-repeat sm:grid">
+	<iframe src={URL} class='-mt-8 h-[800px] w-[395px]'></iframe>
+</div>
+

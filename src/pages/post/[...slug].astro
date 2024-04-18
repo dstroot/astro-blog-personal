@@ -1,12 +1,14 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
+import { type CollectionEntry } from 'astro:content'
+import { getPosts } from '@/utils'
 import BlogPost from '@/layouts/BlogPost'
+
 import Code from '@/components/mdx/Code'
 import YouTube from '@/components/mdx/YouTube'
-import { getPosts } from '@/utils'
-
-
-// const posts = await getCollection('posts')
+import CustomTweet from '@/components/mdx/CustomTweet'
+import Step from '@/components/mdx/Step'
+import IPhone from '@/components/mdx/IPhone'
+import CustomImage from '@/components/mdx/CustomImage'
 
 export async function getStaticPaths() {
 	const posts = await getPosts()
@@ -15,6 +17,7 @@ export async function getStaticPaths() {
 		props: post
 	}))
 }
+
 type Props = CollectionEntry<'posts'>
 
 const post = Astro.props
@@ -28,11 +31,13 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 	readTime={remarkPluginFrontmatter.minutesRead}
 >
 	<div class='mt-8'>
+
 		<!-- post -->
 		<article class='w-full max-w-full'>
-			<div class='min-w-full mb-12 prose prose-lg md:prose-xl dark:prose-invert'>
-				<Content components={{ pre: Code, YouTube }} />
+			<div class='min-w-full mb-12 prose prose-blue prose-lg dark:prose-invert'>
+				<Content components={{ pre: Code, img: CustomImage, YouTube, CustomTweet, Step, IPhone }} />
 			</div>
 		</article>
+
 	</div>
 </BlogPost>
