@@ -41,11 +41,9 @@ const articleDate = date.toISOString()
 		{
 			coverImage && (
 				<Image
-					src={`https://danstroot.imgix.net${coverImage}`}
+					src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
 					width={1000}
 					height={500}
-					// quality={100}
-					// format='jpg'
 					loading='eager'
 					class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
 					alt={`img of ${title}`}
