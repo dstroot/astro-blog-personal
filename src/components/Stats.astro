@@ -1,0 +1,31 @@
+---
+
+// import { useViewCount } from '@/hooks/useViewCount'
+import ReadStats from '@/components/ReadStats'
+// import { Views } from '@/components/posts/Views'
+
+// interface MoreStatsProps {
+//   slug: string
+//   stats: {
+//     readingTime: number
+//     wordCount: number
+//   }
+// }
+// const { views, isLoading } = useViewCount(slug)
+
+export interface Props {
+	readTime: string
+}
+
+const { readTime } = Astro.props
+---
+
+
+    <div class="mt-2 flex items-center justify-between text-sm text-muted-foreground">
+      <div>
+        <ReadStats readTime={readTime} />
+      </div>
+      <!-- <div>{isLoading ? null : <Views viewCount={views} />}</div> -->
+    </div>
+  
+

@@ -4,6 +4,7 @@ import FormattedDate from '@/components/FormattedDate'
 import BaseLayout from '@/layouts/BaseLayout'
 import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
+import Stats from '@/components/Stats'
 
 type Props = {
 	id: CollectionEntry<'posts'>['id']
@@ -21,17 +22,6 @@ const articleDate = date.toISOString()
 	<article class='min-w-full sm:py-4 sm:max-w-none'>
 		<header class='flex flex-col justify-center min-w-full'>
 			<div class='flex flex-col gap-2'>
-				<div class='flex items-center justify-center gap-x-1'>
-					<p class='text-sm font-bold text-center text-opacity-50'>
-						Published <FormattedDate date={date} />
-					</p>
-					<p class='text-sm font-bold text-center text-opacity-50'>
-						- {readTime}
-					</p>
-					<p class='text-sm font-bold text-center text-opacity-50'>
-						- {data.author.name}
-					</p>
-				</div>
 				<h1 class='text-balance text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl'>
 					{title}
 				</h1>
@@ -51,7 +41,18 @@ const articleDate = date.toISOString()
 				</div>
 			)
 		}
-
+		<Stats readTime={readTime}/>
+				<div class='flex items-center justify-center gap-x-1'>
+					<p class='text-sm font-bold text-center text-opacity-50'>
+						Published <FormattedDate date={date} />
+					</p>
+					<p class='text-sm font-bold text-center text-opacity-50'>
+						- {readTime}
+					</p>
+					<p class='text-sm font-bold text-center text-opacity-50'>
+						- {data.author.name}
+					</p>
+				</div>
 		<div>
 			<slot />
 		</div>
