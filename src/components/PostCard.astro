@@ -5,7 +5,7 @@ import ArrowUp from '@/components/icons/ArrowUp'
 
 const {
 	// id,
-	data: { title, description, date, coverImage, category },
+	data: { title, excerpt, date, coverImage, category },
 	readTime,
 	slug
 } = Astro.props
@@ -13,14 +13,15 @@ const {
 
 <article class='grid grid-rows-[300px_auto] md:grid-rows-[300px_220px] min-h-full group'>
 	<a class='relative overflow-hidden' href={`/post/${slug}/`}>
-		<Image
-			src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
-			width={600}
-			height={200}
-			format='webp'
-			class='h-full min-w-full object-cover hover:scale-[101%] transition-all duration-200 rounded-[2px]'
-			alt={`img of ${title}`}
-		/>
+		<div class="relative aspect-[2/1]">
+			<Image
+				src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
+				alt={`img of ${title}`}
+				width={1000}
+				height={500}
+				class='object-contain hover:scale-[101%] transition-all duration-200 rounded-[2px]'
+			/>
+		</div>
 
 		<div class='z-30 absolute bottom-0 w-full h-20'>
 			<div class='-z-10 absolute bottom-0 glass w-full min-h-full'></div>
@@ -46,7 +47,7 @@ const {
 			<p
 				class='overflow-hidden line-clamp-3 text-gray-700 dark:text-white mb-5 font-[400] md:pr-[15%]'
 			>
-				{description}
+				{excerpt}
 			</p>
 		</div>
 

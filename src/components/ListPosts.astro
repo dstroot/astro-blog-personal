@@ -13,7 +13,7 @@ const { posts, FirstBig = false } = Astro.props
 
 <section
 	class={cn(
-		`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8 mt-3`,
+		`grid grid-cols-1 md:grid-cols-2  gap-8 lg:gap-16 mt-3`,
 		FirstBig && `md:[&>*:first-child]:col-span-2`
 	)}
 >
@@ -32,3 +32,6 @@ const { posts, FirstBig = false } = Astro.props
 		})
 	}
 </section>
+
+
+<!-- grid min-h-screen grid-cols-1 gap-16 md:grid-cols-2 lg:gap-20 -->
