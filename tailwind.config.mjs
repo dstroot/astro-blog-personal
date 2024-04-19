@@ -16,6 +16,10 @@ export default {
                 cite: {
                   fontSize: "1.0rem",
                 },
+                hr: {
+                  marginTop: "0",
+                  marginBottom: "1.0rem",
+                },
               },
             ],
           },
