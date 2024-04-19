@@ -1,7 +1,7 @@
 ---
 import BaseHead from '@/components/BaseHead'
 import Header from '@/components/Header'
-// import Footer from '@/components/Footer'
+import Footer from '@/components/Footer'
 import ProviderTheme from '@/components/ProviderTheme'
 import ProviderAnimations from '@/components/ProviderAnimations'
 import TwSizeIndicator from '@/components/TwSizeIndicator'
@@ -26,7 +26,7 @@ const { title, description, image, articleDate } = Astro.props
 
 			<Header />
 			<slot />
-			<!-- <Footer /> -->
+			<Footer />
 		</main>
 		<TwSizeIndicator />
 		<!-- <EditBlog /> -->
