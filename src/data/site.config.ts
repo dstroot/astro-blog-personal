@@ -16,4 +16,13 @@ export const siteConfig: SiteConfig = {
   ogLocale: 'en_US',
   shareMessage: 'Share this post', // Message to share a post on social media
   paginationSize: 6, // Number of posts per page
+  /**
+   * optional - Webmanifest
+   **/
+  // short_name: 'App',icon: 'src/images/your-icon.svg',
+  // start_url: '/',
+  // theme_color: '#3367D6',
+  // background_color: '#3367D6',
+  // display: 'standalone',
 }
+
