@@ -1,21 +1,21 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import FormattedDate from "@/components/FormattedDate";
-import BaseLayout from "@/layouts/BaseLayout";
-import type { MarkdownHeading } from "astro";
-import { Image } from "astro:assets";
-import Stats from "@/components/Stats";
+import type { CollectionEntry } from 'astro:content'
+import FormattedDate from '@/components/FormattedDate'
+import BaseLayout from '@/layouts/BaseLayout'
+import type { MarkdownHeading } from 'astro'
+import { Image } from 'astro:assets'
+import Stats from '@/components/Stats'
 
 type Props = {
-  id: CollectionEntry<"posts">["id"];
-  data: CollectionEntry<"posts">["data"];
-  headings: MarkdownHeading[];
-  readTime: string;
-};
+  id: CollectionEntry<'posts'>['id']
+  data: CollectionEntry<'posts'>['data']
+  headings: MarkdownHeading[]
+  readTime: string
+}
 
-const { data, readTime } = Astro.props;
-const { title, excerpt, date, coverImage } = data;
-const articleDate = date.toISOString();
+const { data, readTime } = Astro.props
+const { title, excerpt, date, coverImage } = data
+const articleDate = date.toISOString()
 ---
 
 <BaseLayout
@@ -37,7 +37,7 @@ const articleDate = date.toISOString();
           coverImage && (
             <div class="relative aspect-[2/1]">
               <Image
-                src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
+                src={`https://danstroot.imgix.net${coverImage}?w=1120&h=560&q=75&auto=format,enhance&fm=avif,webp`}
                 alt={`img of ${title}`}
                 width={1120}
                 height={560}
