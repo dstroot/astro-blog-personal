@@ -1,66 +1,66 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import FormattedDate from '@/components/FormattedDate'
-import BaseLayout from '@/layouts/BaseLayout'
-import type { MarkdownHeading } from 'astro'
-import { Image } from 'astro:assets'
-import Stats from '@/components/Stats'
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate";
+import BaseLayout from "@/layouts/BaseLayout";
+import type { MarkdownHeading } from "astro";
+import { Image } from "astro:assets";
+import Stats from "@/components/Stats";
 
 type Props = {
-	id: CollectionEntry<'posts'>['id']
-	data: CollectionEntry<'posts'>['data']
-	headings: MarkdownHeading[]
-	readTime: string
-}
+  id: CollectionEntry<"posts">["id"];
+  data: CollectionEntry<"posts">["data"];
+  headings: MarkdownHeading[];
+  readTime: string;
+};
 
-const { data, readTime } = Astro.props
-const { title, excerpt, date, coverImage } = data
-const articleDate = date.toISOString()
+const { data, readTime } = Astro.props;
+const { title, excerpt, date, coverImage } = data;
+const articleDate = date.toISOString();
 ---
 
-<BaseLayout title={title} description={excerpt} image={coverImage} articleDate={articleDate}>
-	<article class='min-w-full sm:py-4 sm:max-w-none'>
+<BaseLayout
+  title={title}
+  description={excerpt}
+  image={coverImage}
+  articleDate={articleDate}
+>
+  <article class="min-w-full sm:py-4 sm:max-w-none">
+    <!-- HEADER -->
+    <header class="flex flex-col justify-center min-w-full">
+      <div class="flex flex-col gap-2">
+        <h1
+          class="text-balance mb-8 text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl"
+        >
+          {title}
+        </h1>
+        {
+          coverImage && (
+            <div class="relative aspect-[2/1]">
+              <Image
+                src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
+                alt={`img of ${title}`}
+                width={1120}
+                height={560}
+                class="object-cover rounded-[2px]"
+              />
+            </div>
+          )
+        }
+        <Stats readTime={readTime} />
+      </div>
+    </header>
 
-		<!-- HEADER -->
-		<header class='flex flex-col justify-center min-w-full'>
-			<div class='flex flex-col gap-2'>
-				<h1 class='text-balance mb-8 text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl'>
-					{title}
-				</h1>
-				{
-					coverImage && (
-						<div class="relative aspect-[2/1]">
-							<Image
-								src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
-								alt={`img of ${title}`}
-								width={1120}
-								height={560}
-								class='object-cover rounded-[2px]'
-							/>
-						</div>
-					)
-				}
-				<Stats readTime={readTime}/>
-			</div>
-		</header>
+	<!-- TODO: Move into hedaer section -->
+    <div class="flex items-center justify-center gap-x-1">
+      <p class="text-sm font-bold text-center text-opacity-50">
+        Published <FormattedDate date={date} />
+      </p>
+      <p class="text-sm font-bold text-center text-opacity-50">
+        - {data.author.name}
+      </p>
+    </div>
 
-				<div class='flex items-center justify-center gap-x-1'>
-					<p class='text-sm font-bold text-center text-opacity-50'>
-						Published <FormattedDate date={date} />
-					</p>
-					<p class='text-sm font-bold text-center text-opacity-50'>
-						- {readTime}
-					</p>
-					<p class='text-sm font-bold text-center text-opacity-50'>
-						- {data.author.name}
-					</p>
-				</div>
-
-
-				
-		<div>
-			<slot />
-		</div>
-	</article>
+    <!-- CONTENT -->
+    <slot />
+  </article>
 </BaseLayout>
-

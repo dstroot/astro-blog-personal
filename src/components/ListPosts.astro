@@ -1,37 +1,36 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import PostCard from '@/components/PostCard'
-import { cn } from '@/utils'
+import type { CollectionEntry } from "astro:content";
+import PostCard from "@/components/PostCard";
+import { cn } from "@/utils";
 
 type Props = {
-	posts: CollectionEntry<'posts'>[]
-	FirstBig?: boolean
-}
+  posts: CollectionEntry<"posts">[];
+  FirstBig?: boolean;
+};
 
-const { posts, FirstBig = false } = Astro.props
+const { posts, FirstBig = false } = Astro.props;
 ---
 
 <section
-	class={cn(
-		`grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-2`,
-		FirstBig && `md:[&>*:first-child]:col-span-2`
-	)}
+  class={cn(
+    `grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-2`,
+    FirstBig && `md:[&>*:first-child]:col-span-2`,
+  )}
 >
-	{
-		posts.map(async (post) => {
-			const { remarkPluginFrontmatter } = await post.render()
+  {
+    posts.map(async (post) => {
+      const { remarkPluginFrontmatter } = await post.render();
 
-			return (
-				<PostCard
-					id={post.id}
-					data={post.data}
-					slug={post.slug}
-					readTime={remarkPluginFrontmatter.minutesRead}
-				/>
-			)
-		})
-	}
+      return (
+        <PostCard
+          id={post.id}
+          data={post.data}
+          slug={post.slug}
+          readTime={remarkPluginFrontmatter.minutesRead}
+        />
+      );
+    })
+  }
 </section>
-
 
 <!-- grid min-h-screen grid-cols-1 gap-16 md:grid-cols-2 lg:gap-20 -->
