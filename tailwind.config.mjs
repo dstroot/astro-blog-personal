@@ -3,16 +3,16 @@
 const disabledCss = {
   // "code::before": false,
   // "code::after": false,
-  "blockquote p:first-of-type::before": false,
-  "blockquote p:last-of-type::after": false,
+  'blockquote p:first-of-type::before': false,
+  'blockquote p:last-of-type::after': false,
   // pre: false,
   // code: false,
   // "pre code": false,
-};
+}
 
 export default {
-  darkMode: "class",
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  darkMode: 'class',
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       typography() {
@@ -24,22 +24,22 @@ export default {
             css: [
               {
                 li: {
-                  marginTop: "0",
-                  marginBottom: "0",
+                  marginTop: '0',
+                  marginBottom: '0',
                 },
                 cite: {
-                  fontSize: "1.0rem",
+                  fontSize: '1.0rem',
                 },
                 hr: {
-                  marginTop: "0",
-                  marginBottom: "1.5rem",
+                  marginTop: '0',
+                  marginBottom: '1.5rem',
                 },
               },
             ],
           },
-        };
+        }
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
-};
+  plugins: [require('@tailwindcss/typography')],
+}

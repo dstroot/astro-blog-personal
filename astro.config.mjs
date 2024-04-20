@@ -1,7 +1,7 @@
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import mdx from "@astrojs/mdx";
-import { remarkReadingTime } from "./src/utils/readTime.ts";
+import { defineConfig } from 'astro/config'
+import tailwind from '@astrojs/tailwind'
+import mdx from '@astrojs/mdx'
+import { remarkReadingTime } from './src/utils/readTime.ts'
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,20 +9,20 @@ export default defineConfig({
     remarkPlugins: [remarkReadingTime],
     drafts: true,
     shikiConfig: {
-      theme: "material-theme-palenight",
+      theme: 'material-theme-palenight',
       wrap: true,
     },
   },
   image: {
-    domains: ["https://danstroot.imgix.net"],
+    domains: ['https://danstroot.imgix.net'],
   },
   integrations: [
     mdx({
-      syntaxHighlight: "shiki",
+      syntaxHighlight: 'shiki',
       shikiConfig: {
         experimentalThemes: {
-          light: "vitesse-light",
-          dark: "material-theme-palenight",
+          light: 'vitesse-light',
+          dark: 'material-theme-palenight',
         },
         wrap: true,
       },
@@ -34,4 +34,4 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
   ],
-});
+})

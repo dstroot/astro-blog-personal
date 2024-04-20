@@ -1,27 +1,27 @@
 ---
-import { type CollectionEntry } from "astro:content";
-import { getPosts } from "@/utils";
-import BlogPost from "@/layouts/BlogPost";
+import { type CollectionEntry } from 'astro:content'
+import { getPosts } from '@/utils'
+import BlogPost from '@/layouts/BlogPost'
 
-import Code from "@/components/mdx/Code";
-import YouTube from "@/components/mdx/YouTube";
-import CustomTweet from "@/components/mdx/CustomTweet";
-import Step from "@/components/mdx/Step";
-import IPhone from "@/components/mdx/IPhone";
-import CustomImage from "@/components/mdx/CustomImage";
+import Code from '@/components/mdx/Code'
+import YouTube from '@/components/mdx/YouTube'
+import CustomTweet from '@/components/mdx/CustomTweet'
+import Step from '@/components/mdx/Step'
+import IPhone from '@/components/mdx/IPhone'
+import CustomImage from '@/components/mdx/CustomImage'
 
 export async function getStaticPaths() {
-  const posts = await getPosts();
+  const posts = await getPosts()
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
-  }));
+  }))
 }
 
-type Props = CollectionEntry<"posts">;
+type Props = CollectionEntry<'posts'>
 
-const post = Astro.props;
-const { Content, headings, remarkPluginFrontmatter } = await post.render();
+const post = Astro.props
+const { Content, headings, remarkPluginFrontmatter } = await post.render()
 ---
 
 <BlogPost
@@ -30,7 +30,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render();
   headings={headings}
   readTime={remarkPluginFrontmatter.minutesRead}
 >
-  <div class="min-w-full mb-12 prose prose-blue prose-lg dark:prose-invert">
+  <div class="prose prose-lg prose-blue mb-12 min-w-full dark:prose-invert">
     <Content
       components={{
         pre: Code,

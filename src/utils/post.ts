@@ -1,4 +1,4 @@
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content'
 
 // export const getCategories = async () => {
 // 	const posts = await getCollection('blog')
@@ -15,11 +15,11 @@ import { getCollection } from "astro:content";
 // }
 
 export const getPosts = async (max?: number) => {
-  return (await getCollection("posts"))
+  return (await getCollection('posts'))
     .filter((post) => post.data.published) // get only published posts
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()) // sort by date desc
-    .slice(0, max);
-};
+    .slice(0, max)
+}
 
 // export const getTags = async () => {
 // 	const posts = await getCollection('blog')

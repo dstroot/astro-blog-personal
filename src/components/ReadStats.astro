@@ -1,13 +1,13 @@
 ---
-import Clock from "./icons/Clock.astro";
+import Clock from './icons/Clock.astro'
 
 export interface Props {
-  readTime: string;
+  readTime: string
 }
 
-const { readTime } = Astro.props;
+const { readTime } = Astro.props
 ---
 
 <div>
-  <Clock />{" "}{readTime}
+  <Clock />{' '}{readTime}
 </div>

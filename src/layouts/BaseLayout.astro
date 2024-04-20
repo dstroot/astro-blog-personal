@@ -1,13 +1,13 @@
 ---
-import BaseHead from "@/components/BaseHead";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ProviderTheme from "@/components/ProviderTheme";
-import ProviderAnimations from "@/components/ProviderAnimations";
-import TwSizeIndicator from "@/components/TwSizeIndicator";
+import BaseHead from '@/components/BaseHead'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+import ProviderTheme from '@/components/ProviderTheme'
+import ProviderAnimations from '@/components/ProviderAnimations'
+import TwSizeIndicator from '@/components/TwSizeIndicator'
 // import EditBlog from '@/components/editBlog'
 
-const { title, description, image, articleDate } = Astro.props;
+const { title, description, image, articleDate } = Astro.props
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -23,7 +23,7 @@ const { title, description, image, articleDate } = Astro.props;
   </head>
 
   <body class="bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white">
-    <main class="container mx-auto px-4 max-w-6xl">
+    <main class="container mx-auto max-w-6xl px-4">
       <Header />
       <slot />
       <Footer />

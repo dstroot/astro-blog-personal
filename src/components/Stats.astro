@@ -1,6 +1,6 @@
 ---
 // import { useViewCount } from '@/hooks/useViewCount'
-import ReadStats from "@/components/ReadStats";
+import ReadStats from '@/components/ReadStats'
 // import { Views } from '@/components/posts/Views'
 
 // interface MoreStatsProps {
@@ -13,14 +13,14 @@ import ReadStats from "@/components/ReadStats";
 // const { views, isLoading } = useViewCount(slug)
 
 export interface Props {
-  readTime: string;
+  readTime: string
 }
 
-const { readTime } = Astro.props;
+const { readTime } = Astro.props
 ---
 
 <div
-  class="mt-2 flex items-center justify-between text-sm text-muted-foreground"
+  class="text-muted-foreground mt-2 flex items-center justify-between text-sm"
 >
   <div>
     <ReadStats readTime={readTime} />

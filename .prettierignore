@@ -1,0 +1,6 @@
+.next
+.vercel
+.astro
+.dist
+.contentlayer
+node_modules

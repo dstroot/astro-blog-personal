@@ -1,4 +1,4 @@
-import { defineCollection, reference, z } from "astro:content";
+import { defineCollection, reference, z } from 'astro:content'
 // import { CATEGORIES } from "@/data/categories";
 
 // const blog = defineCollection({
@@ -24,10 +24,10 @@ const posts = defineCollection({
     z.object({
       title: z
         .string()
-        .max(99, { message: "Title must be 99 characters or less." }),
+        .max(99, { message: 'Title must be 99 characters or less.' }),
       excerpt: z
         .string()
-        .max(599, { message: "Excerpt must be 599 characters or less." }),
+        .max(599, { message: 'Excerpt must be 599 characters or less.' }),
       coverImage: z.string().max(99),
       date: z
         .string()
@@ -42,8 +42,8 @@ const posts = defineCollection({
         url: z.string().max(99),
       }),
       seoURL: z.string().optional().nullish(),
-      relatedPosts: z.array(reference("posts")).optional(),
+      relatedPosts: z.array(reference('posts')).optional(),
     }),
-});
+})
 
-export const collections = { posts };
+export const collections = { posts }

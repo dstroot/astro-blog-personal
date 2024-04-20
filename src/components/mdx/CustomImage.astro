@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
-const props = Astro.props;
-const isInternalImage = props.src && props.src.startsWith("/");
+import { Image } from 'astro:assets'
+const props = Astro.props
+const isInternalImage = props.src && props.src.startsWith('/')
 ---
 
 {
@@ -14,14 +14,14 @@ const isInternalImage = props.src && props.src.startsWith("/");
         width={1000}
         height={500}
         quality={100}
-        class="rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover"
+        class="my-8 max-h-[300px] w-full  rounded-md object-cover md:max-h-[500px]"
       />
     </div>
   ) : (
     <div class="relative aspect-[2/1]">
       <img
         class="max-h-[384px]"
-        src={props.src + "?w=768"}
+        src={props.src + '?w=768'}
         alt={props.alt}
         loading="lazy"
       />
