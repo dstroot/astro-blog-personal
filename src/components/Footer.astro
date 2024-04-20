@@ -1,42 +1,28 @@
 ---
-import TwitterIcon from '@/components/icons/TwitterIcon'
-import GithubIcon from '@/components/icons/GithubIcon'
+import TwitterIcon from "@/components/icons/TwitterIcon";
+import GithubIcon from "@/components/icons/GithubIcon";
 
-const today = new Date()
+const today = new Date();
 ---
 
-<footer>
+<footer class="text-center">
   &copy; {today.getFullYear()} Dan Stroot. All rights reserved.
-  <div class="social-links">
-    <a href="https://twitter.com/astrodotbuild" target="_blank">
+  <div class="my-8 flex justify-center gap-2">
+    <a
+      class="no-underline"
+      href="https://twitter.com/astrodotbuild"
+      target="_blank"
+    >
       <span class="sr-only">Follow Astro on Twitter</span>
       <TwitterIcon />
     </a>
-    <a href="https://github.com/withastro/astro" target="_blank">
+    <a
+      class="no-underline"
+      href="https://github.com/withastro/astro"
+      target="_blank"
+    >
       <span class="sr-only">Go to Astro's GitHub repo</span>
       <GithubIcon />
     </a>
   </div>
 </footer>
-
-<style>
-  footer {
-    padding: 2em 1em 6em 1em;
-    background: linear-gradient(var(--gray-gradient)) no-repeat;
-    color: rgb(var(--gray));
-    text-align: center;
-  }
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-    margin-top: 1em;
-  }
-  .social-links a {
-    text-decoration: none;
-    color: rgb(var(--gray));
-  }
-  .social-links a:hover {
-    color: rgb(var(--gray-dark));
-  }
-</style>
