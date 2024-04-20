@@ -20,28 +20,30 @@ const articleDate = date.toISOString()
 
 <BaseLayout title={title} description={excerpt} image={coverImage} articleDate={articleDate}>
 	<article class='min-w-full sm:py-4 sm:max-w-none'>
+
+		<!-- HEADER -->
 		<header class='flex flex-col justify-center min-w-full'>
 			<div class='flex flex-col gap-2'>
-				<h1 class='text-balance text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl'>
+				<h1 class='text-balance mb-8 text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl'>
 					{title}
 				</h1>
+				{
+					coverImage && (
+						<div class="relative aspect-[2/1]">
+							<Image
+								src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
+								alt={`img of ${title}`}
+								width={1120}
+								height={560}
+								class='object-cover rounded-[2px]'
+							/>
+						</div>
+					)
+				}
+				<Stats readTime={readTime}/>
 			</div>
 		</header>
 
-		{
-			coverImage && (
-				<div class="relative aspect-[2/1] my-8">
-					<Image
-						src={`https://danstroot.imgix.net${coverImage}?q=75&auto=format,enhance&fm=avif`}
-						alt={`img of ${title}`}
-						width={1120}
-						height={560}
-						class='object-cover rounded-[2px]'
-					/>
-				</div>
-			)
-		}
-		<Stats readTime={readTime}/>
 				<div class='flex items-center justify-center gap-x-1'>
 					<p class='text-sm font-bold text-center text-opacity-50'>
 						Published <FormattedDate date={date} />
@@ -53,6 +55,9 @@ const articleDate = date.toISOString()
 						- {data.author.name}
 					</p>
 				</div>
+
+
+				
 		<div>
 			<slot />
 		</div>

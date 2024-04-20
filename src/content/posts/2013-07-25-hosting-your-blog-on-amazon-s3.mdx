@@ -8,7 +8,7 @@ excerpt: In order to serve your site from S3 you need to first create a bucket
   to redirect all errors back to the root of my blog.  That way no one ever gets
   a 404.  Cool right?
 coverImage: /assets/blog/img/aws_hosting.png
-date: '2013-07-25'
+date: "2013-07-25"
 published: false
 author:
   name: Dan Stroot
@@ -54,18 +54,18 @@ In the "Permissions" section you also need to add a bucket policy that makes you
 
 ```json
 {
-	"Version": "2008-10-17",
-	"Statement": [
-		{
-			"Sid": "PublicReadForGetBucketObjects",
-			"Effect": "Allow",
-			"Principal": {
-				"AWS": "*"
-			},
-			"Action": "s3:GetObject",
-			"Resource": "arn:aws:s3:::snapvotr-blog/*"
-		}
-	]
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadForGetBucketObjects",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::snapvotr-blog/*"
+    }
+  ]
 }
 ```
 

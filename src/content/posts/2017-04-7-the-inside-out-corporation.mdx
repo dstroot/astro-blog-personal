@@ -6,7 +6,7 @@ excerpt: Most companies still have a separate corporate network, protected by
   private, and precious to me, from any computer, via any network, without all
   that extra cost, complexity, overhead, and effort?
 coverImage: /assets/blog/img/citadel.jpg
-date: '2017-04-10'
+date: "2017-04-10"
 published: true
 author:
   name: Dan Stroot
@@ -93,30 +93,38 @@ The first thing needed is the ability to manage users and authorize those users 
 Here are some of the companies that specialize in turning organizations "inside-out":
 
 <table>
-	<tr>
-		<td>
-			<a href='https://auth0.com/'>
-				<img src='/assets/blog/img/auth0_logo.png' alt='Auth0' width='150' />
-			</a>
-		</td>
-		<td>
-			<a href='https://www.okta.com/'>
-				<img src='/assets/blog/img/okta_logo.svg' alt='Okta' width='150' />
-			</a>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<a href='https://www.onelogin.com/'>
-				<img src='/assets/blog/img/onelogin_logo.png' alt='Onelogin' width='150' />
-			</a>
-		</td>
-		<td>
-			<a href='https://www.pingidentity.com/en.html'>
-				<img src='/assets/blog/img/ping_logo.png' alt='Ping Identity' width='150' />
-			</a>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      <a href="https://auth0.com/">
+        <img src="/assets/blog/img/auth0_logo.png" alt="Auth0" width="150" />
+      </a>
+    </td>
+    <td>
+      <a href="https://www.okta.com/">
+        <img src="/assets/blog/img/okta_logo.svg" alt="Okta" width="150" />
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://www.onelogin.com/">
+        <img
+          src="/assets/blog/img/onelogin_logo.png"
+          alt="Onelogin"
+          width="150"
+        />
+      </a>
+    </td>
+    <td>
+      <a href="https://www.pingidentity.com/en.html">
+        <img
+          src="/assets/blog/img/ping_logo.png"
+          alt="Ping Identity"
+          width="150"
+        />
+      </a>
+    </td>
+  </tr>
 </table>
 
 Interest in this space is increasing rapidly. On Friday, April 7th, Okta went public and their shares jumped more than 38 percent!
@@ -145,18 +153,21 @@ Isn't it time all companies decide to live "outside the wall"? The corporate per
 
 Here are the main components summarized:
 
-<Step number={1} title='Unified User Directory and Centralized Access Controls' />
+<Step
+  number={1}
+  title="Unified User Directory and Centralized Access Controls"
+/>
 
 We must have a single, unified repository of all users and user data and simple ways to control
 access to corporate applications.
 
-<Step number={2} title='Identity-Aware Proxy' />
+<Step number={2} title="Identity-Aware Proxy" />
 
 A "smart" reverse proxy is placed in front of internal applications, where policies handle
 authentication and authorization in a consistent manner. The proxy is controlled through our
 Unified Directory and access controls.
 
-<Step number={3} title='Perimeterless Architecture/Zero Trust' />
+<Step number={3} title="Perimeterless Architecture/Zero Trust" />
 
 By making internal applications public facing, there is no longer the concept of a privileged
 network as the primary gatekeeper. Every connection is encrypted, and every request is
