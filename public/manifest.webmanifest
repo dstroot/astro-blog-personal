@@ -12,7 +12,8 @@
     {
       "src": "/img/maskable_icon_x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/img/maskable_icon_x512.png",
@@ -22,15 +23,15 @@
   ],
   "screenshots": [
     {
-      "src": "wide.webp",
+      "src": "/img/wide.webp",
       "sizes": "1280x720",
       "type": "image/webp",
       "form_factor": "wide",
       "label": "Dan Stroot · Blog"
     },
     {
-      "src": "narrow.webp",
-      "sizes": "720x1280",
+      "src": "/img/narrow.webp",
+      "sizes": "720x1200",
       "type": "image/webp",
       "form_factor": "narrow",
       "label": "Dan Stroot · Blog"
