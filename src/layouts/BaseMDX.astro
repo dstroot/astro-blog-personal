@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout'
+import PageHeader from '@/components/PageHeader'
+const { frontmatter } = Astro.props
+---
+
+<BaseLayout>
+  <div class="container mx-auto mt-6 p-4 md:mt-12 md:p-6">
+    <PageHeader
+      title={frontmatter.title}
+      description={frontmatter.description}
+    />
+    <div class="prose prose-lg prose-blue mb-12 min-w-full dark:prose-invert">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

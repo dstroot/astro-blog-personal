@@ -1,0 +1,207 @@
+---
+title: Uses
+description: When I get questions about the specifics of what hardware or software I use I send them here. This is all stuff I regularly use, like, and endorse. Cheers!
+layout: ../layouts/BaseMDX.astro
+---
+
+<div className="max-w-prose">
+  <small>
+    > Most of the links below are for open source tools. However, some may be
+    affiliate links. If you are interested in any of these products please use
+    the link below and support this site. Thank you!
+  </small>
+</div>
+
+<div className="px-2 w-full md:w-1/2 xl:w-1/3">
+
+| <h3 className=''>Contents</h3>              |
+| ------------------------------------------- |
+| [Software Developent](#software-developent) |
+| [Code Editor](#code-editor)                 |
+| [Chrome Extensions](#chrome-extensions)     |
+| [Desktop Apps](#desktop-apps)               |
+
+</div>
+
+You can find out how I setup a new MacBook in my [hackers guide to setting up your Mac](https://dstroot.github.io/macOS-setup/). Here are a few highlights:
+
+- [Strap](https://github.com/MikeMcQuaid/strap) - Used to bootstrap a new Mac. Installs Homebrew and a good set of secure defaults.
+- [Homebrew](https://brew.sh/) - most of my apps are installed via Homebrew through a version controlled [Brewfile](https://github.com/dstroot/homebrew-brewfile/blob/master/Brewfile).
+- [Mackup](https://github.com/lra/mackup) - Mackup backs up your .dotfiles
+
+### Software Developent
+
+#### Basic Infrastructure
+
+- [GitHub](https://github.com) - Where I host all my code. I also run CI/CD pipelines via GitHub Actions.
+- [Node.js](https://nodejs.org/en) - Since I spend a lot of time on front-end work I tend to use the Node.js ecosystem.
+- [pnpm](https://pnpm.io/) - pnpm is a fast, disk space efficient package manager. It is my current package manager of choice but I haven't really explored [bun](https://bun.sh/) yet.
+- [React](https://reactjs.org/) - The most widely used frontend framework in the world.
+- [Nextjs](https://nextjs.org/) - My current most-used framework to build a react-based web app. Major players like The Washington Post, Loom, and Netflix have integrated Next.js into their tech stacks, demonstrating its capability to handle large-scale, high-traffic platforms. MrBeast, a content creator with 100 million YouTube subscribers and a massive social media footprint, built his storefront using Next.js.
+- [TypeScript](https://www.typescriptlang.org/) - I can't imagine building JavaScript projects without TypeScript. Perhaps slows you down a bit at first but overall productivity is much higher. IntelliSense all the things.
+- [Prettier](https://prettier.io/) - I can't imagine life without it. I also use two plugins: '@ianvs/prettier-plugin-sort-imports' and `prettier-plugin-tailwindcss`.
+- [Vercel](https://vercel.com) - I've used many different hosting providers (AWS, Heroku, Netlify, Railway, etc.) and right now I find that Vercel "just works" for my Next.js projects. It provides both the front-end and back-end (serverless functions, edge functions, middleware) seamlessly. When you stop worrying about servers and just build functions things get _much_ easier. Almost everything I need to deploy is made easier with Vercel.
+- [imgIX](https://imgix.com/) - Fantastic image hosting - used for all the images in this site.
+- [Dash](https://kapeli.com/dash) - Dash gives your Mac instant offline access to 200+ API documentation sets
+
+#### Testing
+
+- [Testing Library](https://testing-library.com/) - A great testing library for anything that interacts with the DOM.
+- [Jest](https://jestjs.io/) - Another great testing framework.
+- [Cypress.io](https://cypress.io) - I use this for E2E testing.
+- [MSW](https://mswjs.io/) - Next generation API mocking.
+
+#### Forms
+
+- [Zod](https://zod.dev/) and [React Hook Form](https://react-hook-form.com/) have made working with forms a breeze for me, which is usually one of the most tedious parts of React.
+
+#### Data
+
+- [Prisma](https://www.prisma.io/) - A fantastic ORM for Node.js. Also, sequelize,Drizzle, kysely... Love using Prisma as migration engine/schema definition + Kysely for queries, using prisma-kysely to generate types.
+- [PlanetScale](https://planetscale.com) - Admittedly, I am a huge fan of [PostgreSQL](https://www.postgresql.org/). I tended to use [SQLite](https://www.sqlite.org/index.html) where one might use MySQL, and when I needed a "real" database I used Postgres. However I am finding PlanetScale to be really developer friendly, even if it is MySQL-based. Changes are handled more like Git merge requests vs. migrations. They also have an [NPM package](https://github.com/planetscale/database-js) that allows to get your data via a HTTPS endpoint, instead of via a SQL connection. This means you can **run on the edge**. 👀
+- [Upstash](https://upstash.com) - Easy, simple Redis and Kafka. If you need to rate limit your serverless API's (or monetize them) you need to track usage, Redis is great for that and Upstash provides packages to make things like rate limiting trivial to implement.
+- [Supabase](https://supabase.com/) - When you need/want PostgreSQL you probably want Supabase. I REALLY like the platform they have built.
+
+#### UI
+
+- [TailwindCSS](https://tailwindcss.com/) - A great way to keep styling consistent and stay productive. I was a hardcore Bootstrap user since it first came out because I am not a "CSS guy", I find it fiddly and browser inconsistencies infuriating. Tailwind is my new Bootstrap. It's a gamechanger. I like using unstyled components and then styling them with Tailwindcss.
+- [Reach UI](https://reach.tech/) - An accessibility-focused set of easy-to-use and easy-to-style components.
+- [shadcn/ui](https://ui.shadcn.com/) - Tailwind-styled components that you can copy and paste into your apps. Components use [radix-ui](https://www.radix-ui.com/) under the hood. Nicely done.
+- [Radix-ui](https://www.radix-ui.com/) - Unstyled component library optimized for fast development, easy maintenance, and accessibility.
+- [Headless UI](https://headlessui.com) - Unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS.
+- [TailwindUI](https://tailwindui.com/) - Components and templates, built by the makers of Tailwind CSS.
+- [PostCSS](https://postcss.org/) - I only use these plugins: `tailwindcss`, `autoprefixer`, and `postcss-import`
+
+#### Auth
+
+- [Clerk](https://clerk.com) - Integrate complete user management UIs and APIs, purpose-built for React, Next.js, and the Modern Web.
+- [Auth.js](https://authjs.dev/) - I have used Auth.js more than Clerk, but Auth.js is going through a transition and is being adapted to the Nextjs App Router. Clerk seems nicer right now.
+
+#### Analytics & Monitoring
+
+- [Fathom](https://usefathom.com/) - Fathom is a Google Analytics alternative that doesn’t compromise visitor privacy. My preferred tool for ethical analytics.
+- [Plausible](https://plausible.io/) - Easy to use and privacy-friendly Google Analytics alternative. No cookies and fully compliant with GDPR, CCPA and PECR.
+- [Axiom](https://axiom.co) - You need centralized logging to know when things go wrong.
+
+#### Notifcations & Messaging
+
+- [Pusher](https://pusher.com/) - Push notification service that scales.
+- [Twilio](https://www.twilio.com/en-us) - I like Sendgrid for email, and Twilio SMS. Both work very well for transactional notifications.
+- [Loops](https://loops.so/) - A better way to send marketing + transactional email
+
+#### General
+
+- [Contentlayer](https://contentlayer.dev/) - Contentlayer is a content SDK that validates and transforms your content (.md, .mdx) into type-safe JSON data you can easily import into your application.
+- [XState](https://xstate.js.org/) - Any time I have a complex state problem, I use this.
+- [Stripe](https://stripe.com/) - Financial infrastructure for the Internet.
+- [Segment](https://segment.com/) - Customer data platform (CDP) that helps you collect, clean, and activate your customer data. Also from Twilio.
+- [GrowthBook](https://www.growthbook.io/) - Open source platform for feature flags and A/B testing.
+- [Mux](https://www.mux.com/) - The Internet's Video Infrastructure.
+
+_This list is not comprehensive - just a robust sampling of tools I find really useful._
+
+### Code Editor
+
+- [Theme: Monokai Dark Soda](https://marketplace.visualstudio.com/items?itemName=AdamCaviness.theme-monokai-dark-soda) - My favorite editor theme
+- [Font: Hasklig-Light](https://github.com/i-tu/Hasklig) - I used to use Adobe "Source Code Pro" but Hasklig is basically the same but with ligatures.
+- [Visual Studio Code](https://code.visualstudio.com) - Seems like a long time ago when I used anything else. VSCode Extensions I use:
+
+<div className='text-sm pl-16'>
+
+**Web Dev Extensions (Web Profile)**
+
+- AdamCaviness.theme-monokai-dark-soda
+- andys8.jest-snippets
+- bradlc.vscode-tailwindcss
+- christian-kohler.npm-intellisense
+- csstools.postcss
+- DavidAnson.vscode-markdownlint
+- dbaeumer.vscode-eslint
+- dsznajder.es7-react-js-snippets
+- EditorConfig.EditorConfig
+- esbenp.prettier-vscode
+- file-icons.file-icons
+- formulahendry.auto-rename-tag
+- Gruntfuggly.todo-tree
+- mushan.vscode-paste-image
+- Prisma.prisma
+- redhat.vscode-yaml
+- svelte.svelte-vscode
+- unifiedjs.vscode-mdx
+- vscode-icons-team.vscode-icons
+- wix.vscode-import-cost
+- mikestead.dotenv
+
+**Python Extensions (Data Profile)**
+
+- ms-python.isort
+- ms-python.python
+- ms-python.vscode-pylance
+- ms-toolsai.jupyter
+- ms-toolsai.jupyter-keymap
+- ms-toolsai.jupyter-renderers
+- ms-toolsai.vscode-jupyter-cell-tags
+- ms-toolsai.vscode-jupyter-slideshow
+
+**Miscellaneous Extensions**
+
+- ms-azuretools.vscode-docker
+- ms-vscode-remote.remote-containers
+- golang.go
+- sharat.vscode-brewfile
+- wmaurer.change-case
+
+</div>
+
+### Chrome Extensions
+
+**Privacy & Security**
+
+- [Privacy Badger](https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp) - Privacy Badger automatically discovers trackers based on their behavior. Privacy Badger sends the Global Privacy Control signal to opt you out of data sharing and selling, and the Do Not Track signal to tell companies not to track you. If trackers ignore your wishes, Privacy Badger will learn to block them.
+- [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm) - uBlock Origin is more than an "ad blocker", it's a wide-spectrum content blocker with CPU and memory efficiency as a primary feature.
+- [Bitwarden](https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb) - A secure and free password manager for all of your devices.
+- [Consent-O-Matic](https://chrome.google.com/webstore/detail/consent-o-matic/mdjildafknihdffpkfmmpnpoiajfjnjd) - Cookie pop-ups are designed to be confusing and make you 'agree' to be tracked. This add-on automatically answers consent pop-ups for you, so you can't be manipulated. Set your preferences once, and let the technology do the rest!
+
+**Development**
+
+- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+
+### Desktop Apps
+
+**Basics**
+
+- [Google Chrome](https://www.google.com/chrome) - I also install FireFox for testing so I have Chrome, Safari and FF. However I use Chrome 90% of the time.
+- [Spotify](https://spotify.com) - Yep, my favorite music streaming. Checkout [Soundiiz](https://soundiiz.com/) to sync playlists between Apple Music and Spotify.
+- [Discord](https://discord.com) - I don't "hang out" online, I don't have time for that - but when I need to connect this is where I usually go.
+
+**Programming**
+
+- [Visual Sudio Code](https://code.visualstudio.com/)
+- [Insomnia](https://insomnia.rest/download) - Start building, designing, testing better APIs through spec-first development driven by an APIOps CI/CD pipelines.
+- [Docker](https://docs.docker.com/desktop/install/mac-install/) - Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment that lets you to build, share, and run containerized applications and microservices.
+- [Dash](https://kapeli.com/dash) - Dash gives your Mac instant offline access to 200+ API documentation sets
+- [iTerm2](https://iterm2.com/) - iTerm2 is a replacement for Terminal and the successor to iTerm. It works on Macs with macOS 10.14 or newer. iTerm2 brings the terminal into the modern age with features you never knew you always wanted. I also install [Warp](https://www.warp.dev/) but I haven't really adopted it.
+
+**Productivity**
+
+- [Hey](https://www.hey.com/) - HEY’s approach blocks senders by default - you have to allow them through. I use this for my personal eMail and it works well, once you learn it's ways.
+- [Obsidian](https://obsidian.md/) - Obsidian is the private and flexible writing app that adapts to the way you think.
+- [Dex](https://getdex.com/) - Dex brings together LinkedIn, email, and all your daily tools. Keep in touch, remember where you left off, and see everyone you know.
+- [Things](https://culturedcode.com/things/) - Things is the award-winning personal task manager that helps you plan your day, manage your projects, and make real progress toward your goals.
+- [Todoist](https://todoist.com) - My preferred todo list app
+- [Calendly](https://calendly.com) - For: "Grab a time whenever" link with consulting fees built-in.
+- [Cron](https://cron.com) - My calendar app and it allows me to share my availability with specific blocks of time.
+
+**Video**
+
+- [Zoom.us](https://zoom.us) - Am I the only one tired of Zoom meetings?
+- [OBS](https://obsproject.com) - Powerful open source live streaming software
+
+**Menu Bar**
+
+- [Rectangle](https://rectangleapp.com/) - Move and resize windows in macOS using keyboard shortcuts or snap areas
+- [KeepingYouAwake](https://keepingyouawake.app/) - Prevents your Mac from going to sleep with one click
+- [Numi](https://numi.app/) - Beautiful calculator app for Mac
+- [Dato](https://apps.apple.com/us/app/dato/id1470584107?mt=12) - Dato gives you a local clock, date, multiple world clocks, and upcoming events in the menu bar.
+- [System Color Picker](https://sindresorhus.com/system-color-picker) - The familiar color picker supercharged
+- [TopNotch](https://topnotch.app/) - Makes the notch disappear like a 🥷.
