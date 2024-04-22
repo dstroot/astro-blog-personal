@@ -1,3 +1,18 @@
 ---
+import PageHeader from '@/components/PageHeader'
+
+const title = '404'
+const description = 'Something went wrong - that page does not exist.'
+
+// function sleep(ms: number) {
+//   return new Promise((resolve) => setTimeout(resolve, ms))
+// }
+
+// sleep(500).then(() => {
+//   Astro.redirect('/')
+// })
+
 return Astro.redirect('/')
 ---
+
+<PageHeader title={title} description={description}>{' '}</PageHeader>
