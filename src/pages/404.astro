@@ -1,18 +1,21 @@
 ---
 import PageHeader from '@/components/PageHeader'
+import BaseLayout from '@/layouts/BaseLayout'
 
 const title = '404'
 const description = 'Something went wrong - that page does not exist.'
-
-// function sleep(ms: number) {
-//   return new Promise((resolve) => setTimeout(resolve, ms))
-// }
-
-// sleep(500).then(() => {
-//   Astro.redirect('/')
-// })
-
-return Astro.redirect('/')
 ---
 
-<PageHeader title={title} description={description}>{' '}</PageHeader>
+<BaseLayout title="404">
+  <PageHeader title={title} description={description}>{' '}</PageHeader>
+  <button
+    class="rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+    onclick="redirect()">Return Home</button
+  >
+</BaseLayout>
+
+<script is:inline>
+  function redirect() {
+    window.location.replace('/')
+  }
+</script>
