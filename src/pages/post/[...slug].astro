@@ -27,7 +27,6 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 <BlogPost
   id={post.id}
   data={post.data}
-  headings={headings}
   readTime={remarkPluginFrontmatter.minutesRead}
 >
   <div class="prose prose-lg prose-blue mb-12 min-w-full dark:prose-invert">

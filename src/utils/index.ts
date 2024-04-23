@@ -4,6 +4,7 @@ export {
   // getCategories,
   // getPosts,
   getPosts,
+  getSnippets,
   // getTags,
   // getPostByTag,
   // filterPostsByCategory

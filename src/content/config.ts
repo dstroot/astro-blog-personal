@@ -29,8 +29,7 @@ const posts = defineCollection({
         .string()
         .max(599, { message: 'Excerpt must be 599 characters or less.' }),
       coverImage: z.string().max(99),
-      date: z
-        .string()
+      date: z.string()
         .or(z.date())
         .transform((val) => new Date(val)), // z.coerce.date(), // z.isodate(),
       published: z.boolean().default(false),
@@ -46,4 +45,18 @@ const posts = defineCollection({
     }),
 })
 
-export const collections = { posts }
+const snippets = defineCollection({
+  schema: () =>
+    z.object({
+      title: z.string().max(99),
+      summary: z.string().max(399),
+      icon: z.string().max(50),
+      date: z.string()
+      .or(z.date())
+      .transform((val) => new Date(val)), // z.coerce.date(), // z.isodate(),
+      published: z.boolean().default(false),
+      tags: z.array(z.string()).default([]),
+    }),
+})
+
+export const collections = { posts, snippets }

@@ -2,14 +2,13 @@
 import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '@/components/FormattedDate'
 import BaseLayout from '@/layouts/BaseLayout'
-import type { MarkdownHeading } from 'astro'
+// import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
 import Stats from '@/components/Stats'
 
 type Props = {
   id: CollectionEntry<'posts'>['id']
   data: CollectionEntry<'posts'>['data']
-  headings: MarkdownHeading[]
   readTime: string
 }
 

@@ -1,0 +1,71 @@
+---
+title: 'Framer Motion'
+published: true
+date: '2021-10-23'
+summary: 'Animated slide in pane component with Framer Motion'
+icon: framer
+tags:
+  - Javascript
+#   - React Hook
+#   - React Component
+#   - CSS
+#   - HTML
+---
+
+<Step number={1} title="Install Framer Motion" />
+
+<CodeBlock>
+
+```bash:Terminal
+# If you're using npm
+npm install framer-motion
+
+# If you're using yarn
+
+yarn add framer-motion
+```
+
+</CodeBlock>
+
+<Step number={2} title="Reduce bundle size by using LazyMotion" />
+
+<CodeBlock>
+
+```js title="index.js"
+import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
+```
+
+</CodeBlock>
+
+<Step number={3} title="Use AnimatePresence with LazyMotion" />
+
+<CodeBlock>
+
+```js title="index.js"
+import { AnimatePresence, domAnimation, LazyMotion, m } from 'framer-motion'
+
+const Home = () => {
+  return (
+    <LazyMotion features={domAnimation}>
+      <Container>
+        <AnimatePresence>
+          {/_ Animated Left Pane _/}
+          <m.div
+            key="left-pane"
+            initial={{ x: -500 }}
+            animate={{ x: 0 }}
+            exit={{ x: -500 }}
+            className="max-h-100 hidden h-full w-1/4 justify-center rounded-3xl bg-gray-800 lg:flex"
+          >
+            // Custom component
+          </m.div>
+        </AnimatePresence>
+      </Container>
+    </LazyMotion>
+  )
+}
+
+export default Home
+```
+
+</CodeBlock>

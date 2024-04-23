@@ -21,6 +21,13 @@ export const getPosts = async (max?: number) => {
     .slice(0, max)
 }
 
+export const getSnippets = async (max?: number) => {
+  return (await getCollection('snippets'))
+    .filter((snippet) => snippet.data.published) // get only published snippets
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()) // sort by date desc
+    .slice(0, max)
+}
+
 // export const getTags = async () => {
 // 	const posts = await getCollection('blog')
 // 	const tags = new Set()
