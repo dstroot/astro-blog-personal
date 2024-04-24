@@ -4,14 +4,14 @@ import { cn } from '@/utils'
 
 type Props = HTMLAttributes<'a'>
 
-const { href, class: className, ...props } = Astro.props
+const { href, class: otherClasses, ...props } = Astro.props
 const { pathname } = Astro.url
 const isActive = href === pathname || href === pathname.replace(/\/$/, '')
 ---
 
 <a
   href={href}
-  class={cn(isActive ? 'text-opacity-100' : 'text-opacity-60', className)}
+  class={cn(isActive ? 'underline underline-offset-4' : null, otherClasses)}
   rel="noopener noreferrer "
   {...props}
 >

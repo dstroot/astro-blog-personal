@@ -27,7 +27,7 @@ const snippets = await getSnippets(MAX_POSTS)
     <!-- <ListPosts FirstBig={true} posts={posts} /> -->
     {
       snippets.map(async (snippet) => {
-        return <a href={`/snippet/${snippet.slug}`}>{snippet.data.title}</a>
+        return <a href={`/snippets/${snippet.slug}`}>{snippet.data.title}</a>
       })
     }
   </main>
