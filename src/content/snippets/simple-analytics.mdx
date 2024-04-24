@@ -117,25 +117,25 @@ export default async function handler(req, res) {
 </CodeBlock>
 
 ```js
-import { useEffect } from 'react';
-import Script from 'next/script';
-import { useRouter } from 'next/router';
-import { GTM_ID, pageview } from '../lib/gtm';
+import { useEffect } from 'react'
+import Script from 'next/script'
+import { useRouter } from 'next/router'
+import { GTM_ID, pageview } from '../lib/gtm'
 
 export const pageview = (url) => {
   window.dataLayer.push({
     event: 'pageview',
     page: url,
-  });
-};
+  })
+}
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
+  const router = useRouter()
   useEffect(() => {
-    router.events.on('routeChangeComplete', pageview);
+    router.events.on('routeChangeComplete', pageview)
     return () => {
-      router.events.off('routeChangeComplete', pageview);
-    };
-  }, [router.events]);
+      router.events.off('routeChangeComplete', pageview)
+    }
+  }, [router.events])
 }
 ```

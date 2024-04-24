@@ -25,4 +25,3 @@ export const siteConfig: SiteConfig = {
   // background_color: '#3367D6',
   // display: 'standalone',
 }
-

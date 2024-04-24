@@ -58,15 +58,13 @@ If you have a special case, when you need to get media query result inside you r
 
 ```js title="useMediaQueryExample.jsx"
 const EffecfulComponent = () => {
-  const result = useMediaQuery(`screen and (max-width: 400px)`);
-  return <span>{result.toString()}</span>;
-};
+  const result = useMediaQuery(`screen and (max-width: 400px)`)
+  return <span>{result.toString()}</span>
+}
 
-const biggerThan400 = useMediaQuery(`(min-width: 400px)`);
+const biggerThan400 = useMediaQuery(`(min-width: 400px)`)
 
-return <div>
-    {biggerThan400 && <button>SomeButton</button>}
-</div>
+return <div>{biggerThan400 && <button>SomeButton</button>}</div>
 ```
 
 </CodeBlock>
