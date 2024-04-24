@@ -1,14 +1,27 @@
-interface SiteConfig {
-  author: string
-  title: string
-  description: string
-  lang: string
-  ogLocale: string
-  shareMessage: string
-  paginationSize: number
+// interface SiteConfig {
+//   author: string
+//   title: string
+//   description: string
+//   lang: string
+//   ogLocale: string
+//   shareMessage: string
+//   paginationSize: number
+// }
+
+export type SiteConfig = typeof siteConfig
+
+type NavItem = {
+  name: string
+  href: string
+  disabled?: boolean
+  prefetch?: boolean
+  external?: boolean
+  new: boolean
+  // icon?: IconKey
+  description?: string
 }
 
-export const siteConfig: SiteConfig = {
+export const siteConfig = {
   author: 'Dan Stroot', // Site author
   title: 'Dan Stroot · Blog', // Site title.
   description: 'I love building things', // Description to display in the meta tags
@@ -24,4 +37,37 @@ export const siteConfig: SiteConfig = {
   // theme_color: '#3367D6',
   // background_color: '#3367D6',
   // display: 'standalone',
+  mainNav: [
+    { href: '/', name: 'Home', new: false, external: false },
+    { href: '/about', name: 'About', new: false, external: false },
+    {
+      href: '/archive',
+      name: 'Archive',
+      new: false,
+      prefetch: false,
+      external: false,
+    },
+    {
+      href: '/snippets',
+      name: 'Snippets',
+      new: false,
+      prefetch: false,
+      external: false,
+    },
+    {
+      href: '/uses',
+      name: 'Uses',
+      new: false,
+      prefetch: false,
+      external: false,
+    },
+    {
+      href: '/quotes',
+      name: 'Quotes',
+      new: false,
+      prefetch: false,
+      external: false,
+    },
+  ] satisfies NavItem[],
 }
+
