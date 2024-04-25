@@ -1,11 +1,9 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import { getSnippets } from '@/utils'
+import BaseLayout from '@/layouts/BaseLayout'
+import { getCollection } from 'astro:content'
 import { siteConfig } from '@/site-config'
-import ListPosts from '@/components/ListPosts'
 
-const MAX_POSTS = 99 // max number of posts to show on the home page
-const snippets = await getSnippets(MAX_POSTS)
+const snippets = await getCollection('snippets')
 ---
 
 <BaseLayout title="Welcome to Astro.">
