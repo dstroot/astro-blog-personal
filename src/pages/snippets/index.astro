@@ -10,16 +10,12 @@ const snippets = await getCollection('snippets')
 ---
 
 <BaseLayout title="Welcome to Astro.">
-  <div class="container mx-auto mt-6 p-4 md:mt-12 md:p-6">
-    <PageHeader title={title} description={description} />
-    <div
-      class="mb-6 grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3"
-    >
-      {
-        snippets.map(async (snippet) => {
-          return <SnippetCard slug={snippet.slug} data={snippet.data} />
-        })
-      }
-    </div>
+  <PageHeader title={title} description={description} />
+  <div class="mb-6 grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
+    {
+      snippets.map(async (snippet) => {
+        return <SnippetCard slug={snippet.slug} data={snippet.data} />
+      })
+    }
   </div>
 </BaseLayout>
