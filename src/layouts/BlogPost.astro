@@ -34,12 +34,12 @@ const articleDate = date.toISOString()
         </h1>
         {
           coverImage && (
-            <div class="relative aspect-[2/1]">
+            <div class="relative aspect-[2/1] w-full">
               <Image
                 src={`https://danstroot.imgix.net${coverImage}?w=1120&h=560&q=75&auto=format,enhance&fm=avif,webp`}
                 alt={`img of ${title}`}
-                width={1120}
-                height={560}
+                width={1496}
+                height={748}
                 loading="eager"
                 class="rounded-[2px] object-cover"
               />
