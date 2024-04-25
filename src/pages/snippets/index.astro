@@ -1,32 +1,25 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout'
+import PageHeader from '@/components/PageHeader'
+import SnippetCard from '@/components/SnippetCard'
 import { getCollection } from 'astro:content'
-import { siteConfig } from '@/site-config'
 
+const title = 'Snippets'
+const description = 'Short solutions to discrete problems.'
 const snippets = await getCollection('snippets')
 ---
 
 <BaseLayout title="Welcome to Astro.">
-  <main>
-    <section class="mb-8 md:mb-12">
-      <div
-        class="mt-20 flex flex-col items-center md:flex-row md:justify-between"
-      >
-        <h1
-          class="text-4xl font-bold leading-tight tracking-tighter md:text-6xl lg:text-7xl"
-        >
-          {siteConfig.title}
-        </h1>
-        <div class="mt-2 text-2xl font-semibold italic md:text-2xl lg:text-3xl">
-          {siteConfig.description}
-        </div>
-      </div>
-    </section>
-    <!-- <ListPosts FirstBig={true} posts={posts} /> -->
-    {
-      snippets.map(async (snippet) => {
-        return <a href={`/snippets/${snippet.slug}`}>{snippet.data.title}</a>
-      })
-    }
-  </main>
+  <div class="container mx-auto mt-6 p-4 md:mt-12 md:p-6">
+    <PageHeader title={title} description={description} />
+    <div
+      class="mb-6 grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3"
+    >
+      {
+        snippets.map(async (snippet) => {
+          return <SnippetCard slug={snippet.slug} data={snippet.data} />
+        })
+      }
+    </div>
+  </div>
 </BaseLayout>
