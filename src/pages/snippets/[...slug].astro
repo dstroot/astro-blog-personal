@@ -1,7 +1,7 @@
 ---
-import { type CollectionEntry } from 'astro:content'
-import { getSnippets } from '@/utils'
-// import BlogPost from '@/layouts/BlogPost'
+import { getCollection, type CollectionEntry } from 'astro:content'
+// import { getSnippets } from '@/utils'
+import Snippet from '@/layouts/Snippet'
 
 import Code from '@/components/mdx/Code'
 import YouTube from '@/components/mdx/YouTube'
@@ -12,7 +12,8 @@ import CustomImage from '@/components/mdx/CustomImage'
 import CodeBlock from '@/components/mdx/CodeBlock'
 
 export async function getStaticPaths() {
-  const snippets = await getSnippets()
+  const snippets = await getCollection('snippets')
+
   return snippets.map((snippet) => ({
     params: { slug: snippet.slug },
     props: snippet,
@@ -25,22 +26,22 @@ const snippet = Astro.props
 const { Content, remarkPluginFrontmatter } = await snippet.render()
 ---
 
-<!-- <BlogPost
+<Snippet
   id={snippet.id}
   data={snippet.data}
   readTime={remarkPluginFrontmatter.minutesRead}
-> -->
-<div class="prose prose-lg prose-blue mb-12 min-w-full dark:prose-invert">
-  <Content
-    components={{
-      pre: Code,
-      img: CustomImage,
-      YouTube,
-      CodeBlock,
-      CustomTweet,
-      Step,
-      IPhone,
-    }}
-  />
-</div>
-<!-- </BlogPost> -->
+>
+  <div class="prose prose-lg prose-blue mb-12 min-w-full dark:prose-invert">
+    <Content
+      components={{
+        pre: Code,
+        img: CustomImage,
+        YouTube,
+        CodeBlock,
+        CustomTweet,
+        Step,
+        IPhone,
+      }}
+    />
+  </div>
+</Snippet>

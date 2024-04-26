@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FormattedDate from '@/components/FormattedDate'
+import BaseLayout from '@/layouts/BaseLayout'
+// import { Image } from 'astro:assets'
+import Stats from '@/components/Stats'
+
+type Props = {
+  id: CollectionEntry<'snippets'>['id']
+  data: CollectionEntry<'snippets'>['data']
+  readTime: string
+}
+
+const { data, readTime } = Astro.props
+const { title, date } = data
+const articleDate = date.toISOString()
+---
+
+<BaseLayout title={title} articleDate={articleDate}>
+  <article class="min-w-full sm:max-w-none sm:py-4">
+    <!-- HEADER -->
+    <header class="flex min-w-full flex-col justify-center">
+      <div class="flex flex-col gap-2">
+        <h1
+          class="mb-8 text-balance text-center text-4xl font-bold leading-tight tracking-tighter md:text-left md:text-6xl md:leading-none lg:text-7xl"
+        >
+          {title}
+        </h1>
+        <Stats readTime={readTime} />
+      </div>
+    </header>
+
+    <!-- TODO: Move into hedaer section -->
+    <div class="flex items-center justify-center gap-x-1">
+      <p class="text-center text-sm font-bold text-opacity-50">
+        Published <FormattedDate date={date} />
+      </p>
+      <p class="text-center text-sm font-bold text-opacity-50"></p>
+    </div>
+
+    <!-- CONTENT -->
+    <slot />
+  </article>
+</BaseLayout>
