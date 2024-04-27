@@ -6,7 +6,7 @@ export async function getStaticPaths() {
   const quotes = await getCollection('quotes')
 
   return quotes.map((quote) => ({
-    params: { slug: quote.id },
+    params: { id: quote.id },
     props: quote,
   }))
 }
@@ -15,4 +15,4 @@ type Props = CollectionEntry<'quotes'>
 const quote = Astro.props
 ---
 
-<Quote id={Quote.id} data={quote.data} />
+<Quote id={quote.id} data={quote.data} />
