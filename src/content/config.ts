@@ -20,6 +20,7 @@ import { defineCollection, reference, z } from 'astro:content'
 // })
 
 const posts = defineCollection({
+  type: 'content',
   schema: () =>
     z.object({
       title: z
@@ -47,6 +48,7 @@ const posts = defineCollection({
 })
 
 const snippets = defineCollection({
+  type: 'content',
   schema: () =>
     z.object({
       title: z.string().max(99),
@@ -61,4 +63,17 @@ const snippets = defineCollection({
     }),
 })
 
-export const collections = { posts, snippets }
+const quotes = defineCollection({
+  type: 'data',
+  schema: () =>
+    z.object({
+      quote: z.string().max(999),
+      author: z.string().max(99),
+      publication: z.string().max(99).optional().nullable(),
+      category: z.enum(["main"]),
+      comments: z.string().max(999).optional()
+    })
+})
+
+export const collections = { posts, snippets, quotes }
+
