@@ -4,8 +4,11 @@ import BaseLayout from '@/layouts/BaseLayout'
 
 type Props = {
   data: CollectionEntry<'quotes'>['data']
+  // index: number
+  // length: number
 }
 
+const randomIndex = Math.floor(Math.random() * 5) + 1
 const { data } = Astro.props
 const { quote, author, publication, comments } = data
 ---
@@ -64,10 +67,11 @@ const { quote, author, publication, comments } = data
           {comments}
         </div>
       </div>
-    </div><button
+    </div><a
+      href={`/quotes/${randomIndex}`}
       type="button"
-      class="mb-2 mr-2 mt-8 w-44 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-0 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 md:mt-16"
-      >Refresh Quote</button
+      class="mb-2 mt-8 w-52 rounded-full bg-gray-900 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-600 focus:outline-none focus:ring-0 focus:ring-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 md:mt-16"
+      >Another Quote Please</a
     >
   </section>
 </BaseLayout>
