@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout'
 import PageHeader from '@/components/PageHeader'
-// import SnippetCard from '@/components/SnippetCard'
 import { getCollection } from 'astro:content'
 
 const title = 'Quotes'
@@ -14,7 +13,13 @@ const quotes = await getCollection('quotes')
   <div class="mb-6 grid w-full grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-3">
     {
       quotes.map(async (q) => {
-        return <a href={`/quotes/${q.id}/`}>{q.data.quote}</a>
+        return (
+          <div class="border">
+            <a href={`/quotes/${q.id}/`}>
+              <p class="p-6">{q.data.quote}</p>
+            </a>
+          </div>
+        )
       })
     }
   </div>
