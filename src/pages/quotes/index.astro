@@ -15,7 +15,7 @@ const quotes = await getCollection('quotes')
       quotes.map(async (q) => {
         return (
           <div class="border">
-            <a href={`/quotes/${q.id}/`}>
+            <a href={`/quotes/${q.id}`}>
               <p class="p-6">{q.data.quote}</p>
             </a>
           </div>
