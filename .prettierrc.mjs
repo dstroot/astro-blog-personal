@@ -1,7 +1,7 @@
 // .prettierrc.mjs
 /** @type {import("prettier").Config} */
 export default {
-  endOfLine: 'lf',
+  // endOfLine: 'lf',
   semi: false,
   singleQuote: true,
   tabWidth: 2,

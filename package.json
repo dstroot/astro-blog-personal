@@ -14,7 +14,7 @@
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/tailwind": "^5.1.0",
     "@pagefind/default-ui": "^1.1.0",
-    "astro": "^4.8.2",
+    "astro": "^4.8.3",
     "astro-icon": "^1.1.0",
     "clsx": "^2.1.1",
     "mdast-util-to-string": "^4.0.0",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.12.12",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0"
   }
