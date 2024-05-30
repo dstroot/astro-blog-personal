@@ -25,6 +25,7 @@ export default defineConfig({
           light: 'vitesse-light',
           dark: 'material-theme-palenight',
         },
+        langs: ["shellscript", "javascript"],
         wrap: true,
       },
       drafts: true,

@@ -1,5 +1,5 @@
 ---
-import NavBar from './NavBar.astro'
+// import NavBar from './NavBar.astro'
 import HeaderLink from './HeaderLink.astro'
 import { siteConfig } from '@/site-config'
 ---
@@ -159,7 +159,7 @@ import { siteConfig } from '@/site-config'
               .querySelector('#header > div > div:last-child')
               ?.classList.add('hidden')
         }),
-          a('[data-aw-toggle-menu]', 'click', function (e: any, t: any) {
+          a('[data-aw-toggle-menu]', 'click', function (t: any) {
             t.classList.toggle('expanded'),
               document.body.classList.toggle('overflow-hidden'),
               document.getElementById('header')?.classList.toggle('h-screen'),
@@ -179,7 +179,7 @@ import { siteConfig } from '@/site-config'
                 ? 'dark'
                 : 'light'))
           }),
-          a('[data-aw-social-share]', 'click', function (e: any, t: any) {
+          a('[data-aw-social-share]', 'click', function (t: any) {
             const d = t.getAttribute('data-aw-social-share'),
               a = encodeURIComponent(t.getAttribute('data-aw-url')),
               o = encodeURIComponent(t.getAttribute('data-aw-text'))
