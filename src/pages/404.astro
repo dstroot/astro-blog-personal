@@ -1,6 +1,7 @@
 ---
 import PageHeader from '@/components/PageHeader'
 import BaseLayout from '@/layouts/BaseLayout'
+import { Image } from 'astro:assets'
 
 const title = '404'
 const description = 'Something went wrong - that page does not exist.'
@@ -8,6 +9,16 @@ const description = 'Something went wrong - that page does not exist.'
 
 <BaseLayout title="404">
   <PageHeader title={title} description={description}>{' '}</PageHeader>
+
+  <Image
+    src={`/img/big2.jpg`}
+    alt={`404 image`}
+    width={500}
+    height={291}
+    loading="eager"
+    class="mb-12 rounded-lg object-cover"
+  />
+
   <button
     class="rounded-full bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
     onclick="redirect()">Return Home</button
