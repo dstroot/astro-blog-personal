@@ -2,7 +2,8 @@
 import BaseHead from '@/components/BaseHead'
 // import Header from '@/components/Header'
 // import AirNavBar from '@/components/AirNavBar'
-import NewNavBar from '@/components/NewNavBar'
+// import NewNavBar from '@/components/NewNavBar'
+import AstroNavBar from '@/components/AstroNavBar'
 import Footer from '@/components/Footer'
 import ProviderTheme from '@/components/ProviderTheme'
 import ProviderAnimations from '@/components/ProviderAnimations'
@@ -29,7 +30,8 @@ const { title, description, image, articleDate } = Astro.props
     <main class="grid min-h-dvh grid-rows-[auto_1fr_auto]">
       <!-- <Header /> -->
       <!-- <AirNavBar /> -->
-      <NewNavBar />
+      <!-- <NewNavBar /> -->
+      <AstroNavBar />
       <div class="container mx-auto mt-6 p-4 md:mt-12 md:p-6">
         <slot />
       </div>
