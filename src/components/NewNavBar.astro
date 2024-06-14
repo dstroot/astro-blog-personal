@@ -132,6 +132,7 @@ import { siteConfig } from '@/site-config'
           ? t('dark')
           : t('light')
     }
+
     function a(e: any, t: any, d: any) {
       const a = 'string' == typeof e ? document.querySelectorAll(e) : e
       a &&
@@ -217,6 +218,7 @@ import { siteConfig } from '@/site-config'
                 e.classList.remove('scroll'),
             (d = !1))
         }
+        
         window
           .matchMedia('(max-width: 767px)')
           .addEventListener('change', function () {

@@ -84,7 +84,7 @@ export default {
       outline: {
         transparent: '2px #983799',
       },
-      typography(theme: any) {
+      typography() {
         return {
           DEFAULT: {
             css: [disabledCss],
